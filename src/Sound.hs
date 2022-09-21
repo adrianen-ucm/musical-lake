@@ -11,7 +11,7 @@ data Sound
   | CricCric
   | TrriTrri
   | BriBri
-  deriving Enum 
+  deriving (Eq, Enum)
 
 instance Show Sound where
   show Brr      = "brr"

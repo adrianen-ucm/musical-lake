@@ -60,3 +60,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - musical-lake
+    - hspec

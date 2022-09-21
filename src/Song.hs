@@ -1,12 +1,12 @@
-module Song (Song(..), sounds) where
+module Song (Song(..), songSounds) where
 
 import           Animal (Animal)
 import           Sound  (Sound)
 
 newtype Song = Song { unSong :: [(Animal, Sound)] }
 
-sounds :: Song -> [Sound]
-sounds = map snd . unSong
+songSounds :: Song -> [Sound]
+songSounds = map snd . unSong
 
 instance Show Song where
   show = unlines . map showAnimalSound . unSong
