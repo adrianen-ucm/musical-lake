@@ -1,5 +1,9 @@
 # The Musical Lake
 
+An implementation of The Musical Lake using Haskell. It could be simpler but I have overcomplicated it in order to show some advanced usages such as monads, monad transformers, parser combinators and existential types.
+
+Also, although Haskell is not OOP, I have coded the solution in an OOP way in order to show good OOP code as requested.
+
 ```sh 
 stack build
 

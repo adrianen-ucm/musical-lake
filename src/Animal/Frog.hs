@@ -3,6 +3,7 @@ module Animal.Frog (Frog(..)) where
 import           Animal (IAnimal (..))
 import           Sound  (Sound (..))
 
+-- A Frog, which is an IAnimal.
 data Frog = Frog
 
 instance Show Frog where

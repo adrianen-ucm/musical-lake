@@ -9,6 +9,8 @@ import           MusicalLake            (IMusicalLake (continueFrom, joinTheBand
 import           Parser                 (parseInput)
 import           System.Exit            (exitFailure)
 
+-- | Requests a known sound from the standard input
+-- and continues with the song.
 main :: IO ()
 main = runMusicalLake $ do
   liftIO $ putStrLn "Type the last sound you heard:"

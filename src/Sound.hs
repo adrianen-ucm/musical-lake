@@ -1,5 +1,6 @@
 module Sound (Sound(..)) where
 
+-- | The known 'Sound's.
 data Sound
   = Brr
   | Birip

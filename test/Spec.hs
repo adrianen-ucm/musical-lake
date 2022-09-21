@@ -12,6 +12,7 @@ import           Song                  (songSounds)
 import           Sound                 (Sound (..))
 import           Test.Hspec            (Spec, describe, hspec, it)
 
+-- | Tests the musical lake with known songs.
 main :: IO ()
 main = hspec $ mapM_ songSpec
   [ [Brr, Fiu, CricCric, Brrah]
@@ -19,13 +20,14 @@ main = hspec $ mapM_ songSpec
   , [BriBri, Plop, CricCric, Brrah]
   ]
 
+-- | Tests a single song.
 songSpec :: [Sound] -> Spec
 songSpec sounds =
   describe ("Song with sounds " <> show sounds) $
     forM_ (tails sounds) $
       maybe (pure ()) (uncurry continueSongSpec) . uncons
 
-
+-- | Tests a song starting from any of its occurring sounds.
 continueSongSpec :: Sound -> [Sound] -> Spec
 continueSongSpec sound following =
   it ("Continue from " <> show sound) $
