@@ -1,0 +1,62 @@
+name:                musical-lake
+version:             1.0.0.0
+github:              "githubuser/musical-lake"
+license:             NONE
+author:              "Adrián Enríquez Ballester"
+maintainer:          "adrianen@ucm.es"
+copyright:           "2022 Adrián Enríquez Ballester"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+description:         Please see the README on GitHub at <https://github.com/adrianen-ucm/musical-lake#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+  default-extensions:  
+  - ExistentialQuantification
+  - FlexibleContexts
+  - GeneralizedNewtypeDeriving
+  dependencies:
+  - transformers
+  - parsec
+
+executables:
+  musical-lake-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - musical-lake
+
+tests:
+  musical-lake-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - musical-lake
