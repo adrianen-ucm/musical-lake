@@ -10,10 +10,11 @@ import           Text.Parsec           (ParseError, ParsecT, Stream, choice,
 parseInput :: Stream s Identity Char => s -> Either ParseError Sound
 parseInput = parse (spaces *> enumParser <* spaces <* eof) ""
 
--- | Simple parser for any type that implements 'Show' and 'Enum'.
-enumParser :: (Show e, Enum e) => Stream s m Char => ParsecT s u m e
+-- | Simple parser for any type that implements 'Show', 'Enum' and 'Bounded'.
+-- This last one is for avoiding infinite enumerations.
+enumParser :: (Show e, Enum e, Bounded e) => Stream s m Char => ParsecT s u m e
 enumParser = choice (map fromShow values) <?> expecting
   where
-    values = enumFrom $ toEnum 0
+    values = [minBound .. maxBound]
     fromShow s = s <$ try (string (show s))
     expecting = "(" <> mconcat (intersperse "|" (map show values)) <> ")"
