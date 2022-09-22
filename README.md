@@ -2,11 +2,10 @@
 
 An implementation of The Musical Lake using Haskell. It could be simpler but I have overcomplicated it in order to show some advanced usages such as monads, monad transformers, parser combinators and existential types.
 
-Also, although Haskell is not OOP, I have coded the solution in a slightly OOP way in order to show good OOP practices as requested:
+Also, although Haskell is not an object-oriented language, I have coded the solution in a slightly OOP way in order to show good OOP practices as requested:
 
-* Animals are instances of an interface that shows the behavior of reacting to a sound that happens in the environment.
+* Animals implement an interface that shows the behavior of reacting to a sound that happens in the environment.
 * The Musical Lake could be seen as a class that represents the environment, allows Animals to register and then plays the song by checking which one handles which sound.
-
 
 ## Requirements
 * [stack](https://www.haskellstack.org) (tested with version 2.7.5)

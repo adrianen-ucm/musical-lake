@@ -1,0 +1,73 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           musical-lake
+version:        1.0.0.0
+description:    Please see the README on GitHub at <https://github.com/adrianen-ucm/musical-lake#readme>
+homepage:       https://github.com/adrianen-ucm/musical-lake#readme
+bug-reports:    https://github.com/adrianen-ucm/musical-lake/issues
+author:         Adrián Enríquez Ballester
+maintainer:     adrianen@ucm.es
+copyright:      2022 Adrián Enríquez Ballester
+license:        NONE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/adrianen-ucm/musical-lake
+
+library
+  exposed-modules:
+      Animal
+      Animal.Cricket
+      Animal.Dragonfly
+      Animal.Frog
+      MusicalLake
+      Parser
+      Song
+      Sound
+  other-modules:
+      Paths_musical_lake
+  hs-source-dirs:
+      src
+  default-extensions:
+      ExistentialQuantification
+      FlexibleContexts
+      GeneralizedNewtypeDeriving
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , parsec
+    , transformers
+  default-language: Haskell2010
+
+executable musical-lake-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_musical_lake
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , musical-lake
+  default-language: Haskell2010
+
+test-suite musical-lake-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_musical_lake
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , musical-lake
+  default-language: Haskell2010
