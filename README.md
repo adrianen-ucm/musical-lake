@@ -18,7 +18,7 @@ stack build
 
 # Execute a main program that reads a known sound 
 # and continues with the song
-stack exec musical-lake-exec
+stack exec musical-lake-exe
 Type the last sound you heard:
 birip
 🦗: trri-trri
